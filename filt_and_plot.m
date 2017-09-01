@@ -1,5 +1,8 @@
-load SP
-load rLFP
+% Eissa et al, The Cross-Scale Effects of Neural Interactions during Human 
+% Neocortical Seizure Activity, PNAS, 2017
+
+% load SP
+% load rLFP
 
 LFP = zeros(50,50,10000);
 
@@ -21,7 +24,7 @@ for i = 1:50
     
 end
 
-LFPc = zeros(1,10000);
+LFPc = zeros(1,10000);      % LFP at the center of the spatial domain
 LFPc(:) = LFP(25,25,:);
 
 figure
@@ -48,7 +51,8 @@ for t = 1:10000
    hold on
    plot(0.001:0.001:10, LFPc)
    plot([t*0.001 t*0.001], [-200 200],'r')
-  
+   title('LFP at the center of the spatial domain')
+   xlabel('Time [s]')
    drawnow
    
 end

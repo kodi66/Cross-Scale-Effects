@@ -77,8 +77,8 @@ U_Io = zeros(N^2,1);
 u_E = zeros(1,T);
 u_I = zeros(1,T);
 
-SP = zeros(50,50,T);
-LFP = zeros(50,50,T);
+SP = zeros(50,50,T); 
+rLFP = zeros(50,50,T);
 
 u_E(1:2) = 0.1502;
 u_I(1:2) = 0.0655;
@@ -91,7 +91,7 @@ ce = alpha_E*dt;
 ci = alpha_I*dt;
 
 for t = 2:T
-    t
+    
     if t*dt > 1 && t*dt < 1.01
 
         W = u_E(t)*ones(N);
@@ -127,10 +127,10 @@ for t = 2:T
     U_Io = U_I;
     U_I = U_In;
     
-    SPo = reshape(F_E,N,N);
-    rLFPo = reshape(-(J_EE+J_IE)*U_E,N,N);
+    SPo = reshape(F_E,N,N);                     % spiking activity
+    rLFPo = reshape(-(J_EE+J_IE)*U_E,N,N);      % raw 'synthetic' LFP
     
-    SP(:,:,t) = SPo(21:70,21:70);
+    SP(:,:,t) = SPo(21:70,21:70);               % to get rid of boundary effects
     rLFP(:,:,t) = LFPo(21:70,21:70);
     
 end
