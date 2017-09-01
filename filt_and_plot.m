@@ -1,5 +1,5 @@
-% Eissa et al, The Cross-Scale Effects of Neural Interactions during Human 
-% Neocortical Seizure Activity, PNAS, 2017
+% Eissa et al., The Cross-Scale Effects of Neural Interactions during Human 
+% Neocortical Seizure Activity, PNAS, 2017.
 
 % load SP
 % load rLFP
